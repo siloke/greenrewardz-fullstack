@@ -48,6 +48,7 @@ const Form = (): JSX.Element => {
                 console.log(token)
             })
             .catch((err: Error) => {
+                console.log(err)
                 alert("Login invalido")
             })
 
@@ -90,7 +91,7 @@ const Form = (): JSX.Element => {
                 <a href="/">Esqueceu a senha?</a>
                 <ButtonSubmit submit={true}>Enviar</ButtonSubmit>
                 <a href='/registro'>
-                <ButtonSubmit submit={false}>Criar Conta</ButtonSubmit>
+                    <ButtonSubmit submit={false}>Criar Conta</ButtonSubmit>
                 </a>
                 <ButtonSocialMedia icon={true}>Entrar com Google</ButtonSocialMedia>
                 <ButtonSocialMedia icon={false}>Entrar com Facebook</ButtonSocialMedia>

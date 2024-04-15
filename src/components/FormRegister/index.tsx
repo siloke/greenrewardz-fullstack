@@ -54,6 +54,7 @@ const FormRegister = (): JSX.Element => {
                 console.log(token)
             })
             .catch((err: Error) => {
+                console.log(err)
                 alert("Algo deu errado!")
             })
 
@@ -94,10 +95,10 @@ const FormRegister = (): JSX.Element => {
                     </InputRightElement>
                 </InputGroup>
                 <Stack spacing={3} onChange={handlePermissionChange}>
-                <Select placeholder='Selecionar Permissão'>
-                    <option value='ADMIN'>Admin</option>
-                    <option value='option2'>Usuario</option>
-                </Select>
+                    <Select placeholder='Selecionar Permissão'>
+                        <option value='ADMIN'>Admin</option>
+                        <option value='option2'>Usuario</option>
+                    </Select>
                 </Stack>
                 <a href="/login">Ja possui uma conta?</a>
                 <ButtonSubmit submit={true}>Registrar-se</ButtonSubmit>
