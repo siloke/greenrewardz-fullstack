@@ -31,3 +31,26 @@ h1 {
   padding: 0px;
 } */
 
+
+/* Formulario de pagina Login / Cadastro */
+.box {
+  display: flex;
+  background-color: var(--green-primary);
+}
+
+.form-itens {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vh;
+  height: 100vh;
+  background-color: #fff;
+  border-radius: 100px 0px 0px 100px;
+}
+
+.left-background {
+  height: 100vh;
+  width: 100vh;
+}
+/* ------------------------------------------- */

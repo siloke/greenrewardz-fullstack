@@ -2,12 +2,18 @@ import './button.css'
 
 interface ButtonProps {
     children: React.ReactNode,
+    submit: boolean
 }
 
-const ButtonSubmit = ({ children }: ButtonProps): JSX.Element => {
+const ButtonSubmit = ({ children, submit }: ButtonProps): JSX.Element => {
     return (
         <>
-            <button type='submit' className='btn'>{children}</button>
+        {submit ?
+        <button type='submit' className='btn'>{children}</button>
+        :
+        <button type='button' className='btn'>{children}</button>
+        }
+            
         </>
     );
 }

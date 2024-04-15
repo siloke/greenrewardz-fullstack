@@ -1,5 +1,5 @@
 // import './input.css'
-import { InputGroup, Input, InputLeftElement, InputRightElement, Button } from '@chakra-ui/react'
+import { InputGroup, Input, InputLeftElement, InputRightElement, Button, Select, Stack } from '@chakra-ui/react'
 import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 import ButtonSubmit from '../ButtonSubmit'
 import ButtonSocialMedia from '../ButtonSocialMedia'
@@ -9,11 +9,12 @@ interface ResponseToken {
     token: string,
 }
 
-const Form = (): JSX.Element => {
+const FormRegister = (): JSX.Element => {
 
     const [show, setShow] = useState<boolean>(false)
     const [emailText, setEmailText] = useState<string>("")
     const [passwordText, setPasswordText] = useState<string>("")
+    const [permissionText, setPermissionText] = useState<string>("")
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setEmailText(event.target.value)
@@ -23,13 +24,18 @@ const Form = (): JSX.Element => {
         setPasswordText(event.target.value)
     }
 
+    const handlePermissionChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        setPermissionText(event.target.value)
+    }
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 
         event.preventDefault()
 
         const data = {
             "login": emailText,
-            "password": passwordText
+            "password": passwordText,
+            "role": permissionText
         }
 
         const config = {
@@ -40,7 +46,7 @@ const Form = (): JSX.Element => {
             body: JSON.stringify(data)
         }
 
-        fetch("https://backend-greenrewardz.onrender.com/auth/login", config)
+        fetch("https://backend-greenrewardz.onrender.com/auth/register", config)
             .then((response) => {
                 return response.json()
             })
@@ -48,7 +54,7 @@ const Form = (): JSX.Element => {
                 console.log(token)
             })
             .catch((err: Error) => {
-                alert("Login invalido")
+                alert("Algo deu errado!")
             })
 
     }
@@ -87,11 +93,14 @@ const Form = (): JSX.Element => {
                         </Button>
                     </InputRightElement>
                 </InputGroup>
-                <a href="/">Esqueceu a senha?</a>
-                <ButtonSubmit submit={true}>Enviar</ButtonSubmit>
-                <a href='/registro'>
-                <ButtonSubmit submit={false}>Criar Conta</ButtonSubmit>
-                </a>
+                <Stack spacing={3} onChange={handlePermissionChange}>
+                <Select placeholder='Selecionar Permissão'>
+                    <option value='ADMIN'>Admin</option>
+                    <option value='option2'>Usuario</option>
+                </Select>
+                </Stack>
+                <a href="/login">Ja possui uma conta?</a>
+                <ButtonSubmit submit={true}>Registrar-se</ButtonSubmit>
                 <ButtonSocialMedia icon={true}>Entrar com Google</ButtonSocialMedia>
                 <ButtonSocialMedia icon={false}>Entrar com Facebook</ButtonSocialMedia>
             </form>
@@ -99,5 +108,5 @@ const Form = (): JSX.Element => {
     );
 }
 
-export default Form;
+export default FormRegister;
 
