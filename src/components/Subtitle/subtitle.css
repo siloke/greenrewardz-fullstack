@@ -1,0 +1,16 @@
+.subtitle {
+    color: var(--green-primary);
+
+}
+
+.box-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.submarcacao {
+    color: #fff;
+    background-color: var(--green-primary);
+
+}

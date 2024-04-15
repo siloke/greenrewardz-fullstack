@@ -1,0 +1,22 @@
+.btnMedia {
+    background-color: white;
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--gray);
+    border-radius: 50px;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btnMedia:hover {
+    cursor: pointer;
+}
+
+.socialMediaIcon {
+    position: absolute;
+    left: 20px;
+}

@@ -1,0 +1,28 @@
+.mailsvg,
+.locksvg {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: 5px;
+    padding: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+.mailsvg {
+    background-image: url("../../assets/mail.svg");
+}
+
+.locksvg {
+    background-image: url("../../assets/lock.svg");
+}
+
+.mailsvg:focus,
+.locksvg:focus {
+    outline: none;
+}
+
+.mailsvg::placeholder,
+.locksvg::placeholder {
+    padding-left: 1rem;
+}

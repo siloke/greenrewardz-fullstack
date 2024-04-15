@@ -1,0 +1,8 @@
+.black {
+    color: black;
+}
+
+
+.green{
+    color: var(--green-dark);
+}
