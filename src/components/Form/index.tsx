@@ -5,6 +5,7 @@ import ButtonSubmit from '../ButtonSubmit'
 import ButtonSocialMedia from '../ButtonSocialMedia'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Paragraph from '../Paragraph'
 
 interface ResponseToken {
     token: string,
@@ -53,6 +54,8 @@ const Form = (): JSX.Element => {
                 alert("Login invalido")
             })
 
+        setEmailText("")
+        setPasswordText("")
     }
 
     const handleClick = (): void => {
@@ -67,6 +70,7 @@ const Form = (): JSX.Element => {
                         <EmailIcon color='gray.300' />
                     </InputLeftElement>
                     <Input
+                        value={emailText}
                         onChange={handleEmailChange}
                         focusBorderColor='gray.300'
                         type='email'
@@ -77,6 +81,7 @@ const Form = (): JSX.Element => {
                         <LockIcon color='gray.300' />
                     </InputLeftElement>
                     <Input
+                        value={passwordText}
                         onChange={handlePasswordChange}
                         focusBorderColor='gray.300'
                         pr='4.5rem'
@@ -90,13 +95,12 @@ const Form = (): JSX.Element => {
                     </InputRightElement>
                 </InputGroup>
                 <a href="/">Esqueceu a senha?</a>
-                <ButtonSubmit submit={true}>Enviar</ButtonSubmit>
-                <Link to='/registro'>
-                    <ButtonSubmit submit={false}>Criar Conta</ButtonSubmit>
-                </Link>
+                <ButtonSubmit submit={true}>Entrar</ButtonSubmit>
+                <div className="margin"></div>
                 <ButtonSocialMedia icon={true}>Entrar com Google</ButtonSocialMedia>
                 <ButtonSocialMedia icon={false}>Entrar com Facebook</ButtonSocialMedia>
-            </form>
+                <Paragraph paragrafo={true}>Não tem uma conta? <Link to="/registro">Registre-se</Link></Paragraph>
+            </form >
         </>
     );
 }
