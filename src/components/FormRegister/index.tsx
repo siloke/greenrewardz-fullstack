@@ -52,7 +52,7 @@ const FormRegister = (): JSX.Element => {
         fetch("https://backend-greenrewardz.onrender.com/auth/register", config)
             .then((response) => {
                 console.log(response)
-                if (response.status == 201) {
+                if (response.status == 200) {
                     alert("Cadastrado com sucesso")
                 }
             })
