@@ -4,6 +4,7 @@ import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 import ButtonSubmit from '../ButtonSubmit'
 import ButtonSocialMedia from '../ButtonSocialMedia'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 interface ResponseToken {
     token: string,
@@ -100,7 +101,7 @@ const FormRegister = (): JSX.Element => {
                         <option value='option2'>Usuario</option>
                     </Select>
                 </Stack>
-                <a href="/login">Ja possui uma conta?</a>
+                <Link to="/">Ja possui uma conta?</Link>
                 <ButtonSubmit submit={true}>Registrar-se</ButtonSubmit>
                 <ButtonSocialMedia icon={true}>Entrar com Google</ButtonSocialMedia>
                 <ButtonSocialMedia icon={false}>Entrar com Facebook</ButtonSocialMedia>
