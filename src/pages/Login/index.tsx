@@ -7,7 +7,7 @@ import Subtitle from "../../components/Subtitle";
 import Paragraph from "../../components/Paragraph";
 import Form from "../../components/Form";
 import Logo from '../../assets/Logo.svg'
-import LeftBackground from "../../assets/left-background.png";
+
 
 const Login = (): JSX.Element => {
     return (

@@ -1,4 +1,4 @@
-// import './input.css'
+
 import { InputGroup, Input, InputLeftElement, InputRightElement, Button, Select, Stack } from '@chakra-ui/react'
 import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 import ButtonSubmit from '../ButtonSubmit'
@@ -7,9 +7,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Paragraph from '../Paragraph'
 
-interface ResponseToken {
-    token: string,
-}
 
 const FormRegister = (): JSX.Element => {
 
@@ -51,10 +48,10 @@ const FormRegister = (): JSX.Element => {
 
         fetch("https://backend-greenrewardz.onrender.com/auth/register", config)
             .then((response) => {
-                console.log(response)
-                if (response.status == 200) {
-                    alert("Cadastrado com sucesso")
-                }
+                return response.text()
+            })
+            .then((data) => {
+                alert(data)
             })
             .catch((err: Error) => {
                 console.error(err)
